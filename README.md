@@ -10,5 +10,12 @@ This is a tool to crawl and visualize Bitcoin market depth and price trend.
 * imagemagick (for gif animation stitching)
 
 Quick installation script for Debian:
-`sudo apt-get install python python-numpy python-matplotlib coffeescript nodejs wgetimagemagick`
+`sudo apt-get install python python-numpy python-matplotlib coffeescript nodejs wget imagemagick`
 
+## Usage
+
+`./main.sh`
+
+Here is an example output:
+
+![](https://raw.github.com/grapeot/bitcoinDepthPrice/master/dat/result.gif)
