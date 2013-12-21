@@ -13,6 +13,7 @@ def visualize(fn, p1, p2):
 
     # Preprocess
     os.system('coffee preprocess.coffee ' + fn);
+    pp.figure()
 
     # draw ask
     ask = np.loadtxt(askfn)
@@ -29,6 +30,7 @@ def visualize(fn, p1, p2):
     # draw the price change
     lineHeight = max(bidMax, askMax) * 0.6
     pp.xlim((500, 850))
+    pp.ylim((0, 10000))
     ax = pp.gca()
     ax.add_line(Line2D([p1, p1], [0, lineHeight], linewidth=2, color='black'))
     ax.add_line(Line2D([p2, p2], [0, lineHeight], linewidth=2, color='blue'))
@@ -38,9 +40,8 @@ def visualize(fn, p1, p2):
     pp.xlabel('Price (USD)')
     pp.ylabel('Amount (BTC)')
     pp.legend(['Ask', 'Bid'])
-    pp.show()
-
-    # pp.savefig(noextFn + '.png')
+    # pp.show()
+    pp.savefig(noextFn + '.png')
 
     os.system('rm ' + askfn)
     os.system('rm ' + bidfn)
