@@ -13,7 +13,8 @@ def visualize(fn, p1, p2):
 
     # Preprocess
     os.system('coffee preprocess.coffee ' + fn);
-    pp.figure()
+    pp.figure(1)
+    pp.clf()
 
     # draw ask
     ask = np.loadtxt(askfn)
