@@ -18,18 +18,19 @@ def visualize(fn, p1, p2):
 
     # draw ask
     ask = np.loadtxt(askfn)
-    idx = ask[:, 0] < np.min(ask[:, 0]) * 1.2
-    pp.plot(ask[idx, 0], np.cumsum(ask[:, 1])[idx], 'r')
-    askMax = max(np.cumsum(ask[:, 1])[idx])
+    # idx = ask[:, 0] < np.min(ask[:, 0]) * 1.2
+    pp.plot(ask[:, 0], np.cumsum(ask[:, 1]), 'r')
+    # askMax = max(np.cumsum(ask[:, 1]))
 
     # draw bid
     bid = np.loadtxt(bidfn)
-    idx = bid[:, 0] > np.max(bid[:, 0]) * 0.8
-    pp.plot(bid[idx, 0], np.flipud(np.cumsum(np.flipud(bid[:, 1])))[idx])
-    bidMax = max(np.cumsum(bid[:, 1])[idx])
+    # idx = bid[:, 0] > np.max(bid[:, 0]) * 0.8
+    pp.plot(bid[:, 0], np.flipud(np.cumsum(np.flipud(bid[:, 1]))))
+    # bidMax = max(np.cumsum(bid[:, 1])[idx])
 
     # draw the price change
-    lineHeight = max(bidMax, askMax) * 0.6
+    lineHeight = 6000
+    # lineHeight = max(bidMax, askMax) * 0.6
     title = os.path.basename(noextFn)
     pp.xlim((500, 850))
     pp.ylim((0, 10000))
